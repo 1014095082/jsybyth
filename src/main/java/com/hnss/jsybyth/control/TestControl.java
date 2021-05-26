@@ -34,6 +34,7 @@ public class TestControl {
     public Object hello( /* 参数注解 */ @ApiParam(value = "管道ID", required = true) @RequestParam String id) {
         log.info("测试方法日志");
         List<TGasOutput> channelInfosById =testService.getChannelInfosById(id);
+        System.out.println("测试");
         return ResultUtils.success().data("data",channelInfosById);
     }
 
