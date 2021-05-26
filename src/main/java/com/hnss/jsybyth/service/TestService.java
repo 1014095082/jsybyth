@@ -1,6 +1,6 @@
 package com.hnss.jsybyth.service;
 
-import com.hnss.jsybyth.VO.ChannelVO;
+import com.hnss.jsybyth.entity.TGasOutput;
 
 import java.util.List;
 
@@ -19,5 +19,5 @@ public interface TestService {
      * @Param id :管道编号
      * @return
      **/
-    List<ChannelVO> getChannelInfosById(String id);
+    List<TGasOutput> getChannelInfosById(String id);
 }

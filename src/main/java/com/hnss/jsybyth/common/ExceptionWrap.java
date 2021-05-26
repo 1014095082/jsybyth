@@ -12,7 +12,7 @@ import lombok.Data;
  **/
 
 @Data
-public class ExceptionWrap extends  RuntimeException{
+public class ExceptionWrap extends RuntimeException {
 
     private Integer code;
 

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnss.jsybyth.mapper.JsChannelMapper">
+  <resultMap id="BaseResultMap" type="com.hnss.jsybyth.entity.JsChannel">
+    <id column="g_no" jdbcType="VARCHAR" property="gNo" />
+    <result column="g_map_no" jdbcType="VARCHAR" property="gMapNo" />
+    <result column="g_name" jdbcType="VARCHAR" property="gName" />
+    <result column="g_max_height" jdbcType="DOUBLE" property="gMaxHeight" />
+    <result column="channel_type" jdbcType="VARCHAR" property="channelType" />
+    <result column="channel_type_desc" jdbcType="VARCHAR" property="channelTypeDesc" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    g_no, g_map_no, g_name, g_max_height, channel_type, channel_type_desc, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from JS_channel
+    where g_no = #{gNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from JS_channel
+    where g_no = #{gNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="g_no" keyProperty="gNo" parameterType="com.hnss.jsybyth.entity.JsChannel" useGeneratedKeys="true">
+    insert into JS_channel (g_map_no, g_name, g_max_height, 
+      channel_type, channel_type_desc, create_time, 
+      update_time)
+    values (#{gMapNo,jdbcType=VARCHAR}, #{gName,jdbcType=VARCHAR}, #{gMaxHeight,jdbcType=DOUBLE}, 
+      #{channelType,jdbcType=VARCHAR}, #{channelTypeDesc,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="g_no" keyProperty="gNo" parameterType="com.hnss.jsybyth.entity.JsChannel" useGeneratedKeys="true">
+    insert into JS_channel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gMapNo != null">
+        g_map_no,
+      </if>
+      <if test="gName != null">
+        g_name,
+      </if>
+      <if test="gMaxHeight != null">
+        g_max_height,
+      </if>
+      <if test="channelType != null">
+        channel_type,
+      </if>
+      <if test="channelTypeDesc != null">
+        channel_type_desc,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gMapNo != null">
+        #{gMapNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gName != null">
+        #{gName,jdbcType=VARCHAR},
+      </if>
+      <if test="gMaxHeight != null">
+        #{gMaxHeight,jdbcType=DOUBLE},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="channelTypeDesc != null">
+        #{channelTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hnss.jsybyth.entity.JsChannel">
+    update JS_channel
+    <set>
+      <if test="gMapNo != null">
+        g_map_no = #{gMapNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gName != null">
+        g_name = #{gName,jdbcType=VARCHAR},
+      </if>
+      <if test="gMaxHeight != null">
+        g_max_height = #{gMaxHeight,jdbcType=DOUBLE},
+      </if>
+      <if test="channelType != null">
+        channel_type = #{channelType,jdbcType=VARCHAR},
+      </if>
+      <if test="channelTypeDesc != null">
+        channel_type_desc = #{channelTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where g_no = #{gNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hnss.jsybyth.entity.JsChannel">
+    update JS_channel
+    set g_map_no = #{gMapNo,jdbcType=VARCHAR},
+      g_name = #{gName,jdbcType=VARCHAR},
+      g_max_height = #{gMaxHeight,jdbcType=DOUBLE},
+      channel_type = #{channelType,jdbcType=VARCHAR},
+      channel_type_desc = #{channelTypeDesc,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where g_no = #{gNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -19,7 +19,9 @@ import org.springframework.web.client.HttpClientErrorException;
 @Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    /**-------- 通用异常处理方法 --------**/
+    /**
+     * -------- 通用异常处理方法 --------
+     **/
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResultUtils error(Exception e) {
@@ -28,7 +30,9 @@ public class GlobalExceptionHandler {
         return ResultUtils.error();
     }
 
-    /**-------- 指定异常处理方法 --------**/
+    /**
+     * -------- 指定异常处理方法 --------
+     **/
     @ExceptionHandler(NullPointerException.class)
     @ResponseBody
     public ResultUtils error(NullPointerException e) {
@@ -43,7 +47,9 @@ public class GlobalExceptionHandler {
         return ResultUtils.setResult(ResultCodeEnum.HTTP_CLIENT_ERROR);
     }
 
-    /**-------- 自定义定异常处理方法 --------**/
+    /**
+     * -------- 自定义定异常处理方法 --------
+     **/
     @ExceptionHandler(ExceptionWrap.class)
     @ResponseBody
     public ResultUtils error(ExceptionWrap e) {

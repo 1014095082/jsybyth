@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnss.jsybyth.mapper.TGasOutputMapper">
+  <resultMap id="BaseResultMap" type="com.hnss.jsybyth.entity.TGasOutput">
+    <id column="ENTERID" jdbcType="VARCHAR" property="enterid" />
+    <id column="OUTFALL_CODE" jdbcType="VARCHAR" property="outfallCode" />
+    <result column="OUTFALL_NAME" jdbcType="VARCHAR" property="outfallName" />
+    <result column="AIRFUNC_TYPE_CODE" jdbcType="VARCHAR" property="airfuncTypeCode" />
+    <result column="OUTFALL_ID" jdbcType="VARCHAR" property="outfallId" />
+    <result column="OUTFALL_POSITION" jdbcType="VARCHAR" property="outfallPosition" />
+    <result column="OUTFALL_HIGHT" jdbcType="DECIMAL" property="outfallHight" />
+    <result column="OUTFALL_DIAMETER" jdbcType="DECIMAL" property="outfallDiameter" />
+    <result column="OUTFALL_RULE_CODE" jdbcType="VARCHAR" property="outfallRuleCode" />
+    <result column="FUEL_TYPE_CODE" jdbcType="VARCHAR" property="fuelTypeCode" />
+    <result column="BURNING_MODE_CODE" jdbcType="VARCHAR" property="burningModeCode" />
+    <result column="FLAG_INSTALL_FORM" jdbcType="VARCHAR" property="flagInstallForm" />
+    <result column="TWOCTRL_AREA_TYPE" jdbcType="VARCHAR" property="twoctrlAreaType" />
+    <result column="DISCHARGE_TYPE" jdbcType="VARCHAR" property="dischargeType" />
+    <result column="DGI_SN" jdbcType="VARCHAR" property="dgiSn" />
+    <result column="DIVISION_CODE" jdbcType="VARCHAR" property="divisionCode" />
+    <result column="CHANGE_TIME" jdbcType="TIMESTAMP" property="changeTime" />
+    <result column="LONGITUDE" jdbcType="DECIMAL" property="longitude" />
+    <result column="LATITUDE" jdbcType="DECIMAL" property="latitude" />
+    <result column="IOTYPE" jdbcType="VARCHAR" property="iotype" />
+    <result column="ACCEPTRANGE" jdbcType="VARCHAR" property="acceptrange" />
+    <result column="VALLEYCODE" jdbcType="VARCHAR" property="valleycode" />
+    <result column="FUNCTIONAREACODE" jdbcType="VARCHAR" property="functionareacode" />
+    <result column="AUTOMONITORINSTRUMENT" jdbcType="VARCHAR" property="automonitorinstrument" />
+    <result column="TWOAREATYPECODE" jdbcType="VARCHAR" property="twoareatypecode" />
+    <result column="EQUIPMENTNAME" jdbcType="VARCHAR" property="equipmentname" />
+    <result column="WORKSHOPNAME" jdbcType="VARCHAR" property="workshopname" />
+    <result column="BURNTEQUIPMENTUSE" jdbcType="VARCHAR" property="burntequipmentuse" />
+    <result column="SAMPLINGLOCATION" jdbcType="VARCHAR" property="samplinglocation" />
+    <result column="SAMPLINGLOCATIONSTACKAREA" jdbcType="VARCHAR" property="samplinglocationstackarea" />
+    <result column="SAMPLINGWAYTYPECODE" jdbcType="VARCHAR" property="samplingwaytypecode" />
+    <result column="BEFOREHANDPROCESSWAY" jdbcType="VARCHAR" property="beforehandprocessway" />
+    <result column="TRANSMISSIONDISTANCE" jdbcType="DOUBLE" property="transmissiondistance" />
+    <result column="FLOWTHRESHOLDMINVALUE" jdbcType="VARCHAR" property="flowthresholdminvalue" />
+    <result column="FLOWTHRESHOLDMAXVALUE" jdbcType="VARCHAR" property="flowthresholdmaxvalue" />
+    <result column="WEIRNOTCHTYPECODE" jdbcType="VARCHAR" property="weirnotchtypecode" />
+    <result column="FORHOWLENGTH" jdbcType="DOUBLE" property="forhowlength" />
+    <result column="WATERSURFACEWIDTH" jdbcType="DOUBLE" property="watersurfacewidth" />
+    <result column="LARYNXWAYWIDTH" jdbcType="DOUBLE" property="larynxwaywidth" />
+    <result column="PIPEDIAMETER" jdbcType="VARCHAR" property="pipediameter" />
+    <result column="INDIRECTFLAG" jdbcType="VARCHAR" property="indirectflag" />
+    <result column="STACK_HEIGHT" jdbcType="DOUBLE" property="stackHeight" />
+    <result column="WHETHERSINTERING" jdbcType="VARCHAR" property="whethersintering" />
+    <result column="DIRECTION_CODE" jdbcType="VARCHAR" property="directionCode" />
+    <result column="MONITORPOINT_TYPE_ID" jdbcType="INTEGER" property="monitorpointTypeId" />
+    <result column="SITE_STATUS" jdbcType="VARCHAR" property="siteStatus" />
+    <result column="DEVICE_STATUS" jdbcType="VARCHAR" property="deviceStatus" />
+    <result column="ACCEPTANCE_STATUS" jdbcType="VARCHAR" property="acceptanceStatus" />
+    <result column="OUTFALL_TYPE" jdbcType="VARCHAR" property="outfallType" />
+    <result column="DATA_CREATE_TIME" jdbcType="TIMESTAMP" property="dataCreateTime" />
+    <result column="DATA_UPDATE_TIME" jdbcType="TIMESTAMP" property="dataUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ENTERID, OUTFALL_CODE, OUTFALL_NAME, AIRFUNC_TYPE_CODE, OUTFALL_ID, OUTFALL_POSITION, 
+    OUTFALL_HIGHT, OUTFALL_DIAMETER, OUTFALL_RULE_CODE, FUEL_TYPE_CODE, BURNING_MODE_CODE, 
+    FLAG_INSTALL_FORM, TWOCTRL_AREA_TYPE, DISCHARGE_TYPE, DGI_SN, DIVISION_CODE, CHANGE_TIME, 
+    LONGITUDE, LATITUDE, IOTYPE, ACCEPTRANGE, VALLEYCODE, FUNCTIONAREACODE, AUTOMONITORINSTRUMENT, 
+    TWOAREATYPECODE, EQUIPMENTNAME, WORKSHOPNAME, BURNTEQUIPMENTUSE, SAMPLINGLOCATION, 
+    SAMPLINGLOCATIONSTACKAREA, SAMPLINGWAYTYPECODE, BEFOREHANDPROCESSWAY, TRANSMISSIONDISTANCE, 
+    FLOWTHRESHOLDMINVALUE, FLOWTHRESHOLDMAXVALUE, WEIRNOTCHTYPECODE, FORHOWLENGTH, WATERSURFACEWIDTH, 
+    LARYNXWAYWIDTH, PIPEDIAMETER, INDIRECTFLAG, STACK_HEIGHT, WHETHERSINTERING, DIRECTION_CODE, 
+    MONITORPOINT_TYPE_ID, SITE_STATUS, DEVICE_STATUS, ACCEPTANCE_STATUS, OUTFALL_TYPE, 
+    DATA_CREATE_TIME, DATA_UPDATE_TIME
+  </sql>
+
+  <select id="selectById" parameterType="string" resultMap="BaseResultMap">
+    select  *  from t_gas_output
+    <where>
+      <if test="enterid != null and enterid != ''">
+        ENTERID = #{enterid,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+</mapper>

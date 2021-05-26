@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <!--    <properties resource="init.properties"/>-->
+
+    <!-- 指定数据连接驱动jar地址 -->
+    <classPathEntry location="E:\repository\mysql\mysql-connector-java\5.1.26\mysql-connector-java-5.1.26.jar"/>
+
+    <!-- 一个数据库一个context -->
+    <context id="infoGuardian" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+            <!-- 生成的Java文件的编码格式 -->
+            <property name="javaFileEncoding" value="utf-8"/>
+            <!-- 格式化java代码-->
+            <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+            <!-- 格式化XML代码-->
+            <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        </commentGenerator>
+
+
+        <!--jdbc的数据库连接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.1.22:3306/jsyby?useUnicode=true&amp; characterEncoding=utf-8&amp; useSSL=false  &amp;autoReconnect=true&amp;failOverReadOnly=false"
+                        userId="root"
+                        password="hncg88195196">
+        </jdbcConnection>
+
+        <!--        &lt;!&ndash; 类型转换 &ndash;&gt;-->
+        <!--        <javaTypeResolver>-->
+        <!--            &lt;!&ndash; 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） &ndash;&gt;-->
+        <!--            <property name="forceBigDecimals" value="false"/>-->
+        <!--        </javaTypeResolver>-->
+
+
+        <!--        &lt;!&ndash; 生成实体类地址 &ndash;&gt;-->
+        <!--        <javaModelGenerator targetPackage="com.hnss.jsybyth.entity"-->
+        <!--                            targetProject="./src/main/java" >-->
+        <!--            &lt;!&ndash; 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] &ndash;&gt;-->
+        <!--            <property name="enableSubPackages" value="false"/>-->
+        <!--            &lt;!&ndash; 是否针对string类型的字段在set的时候进行trim调用 &ndash;&gt;-->
+        <!--            <property name="trimStrings" value="true"/>-->
+        <!--        </javaModelGenerator>-->
+
+        <!--        &lt;!&ndash; 生成mapxml文件 &ndash;&gt;-->
+        <!--        <sqlMapGenerator targetPackage="mapper"-->
+        <!--                         targetProject="./src/main/resources" >-->
+        <!--            &lt;!&ndash; 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] &ndash;&gt;-->
+        <!--            <property name="enableSubPackages" value="false" />-->
+        <!--        </sqlMapGenerator>-->
+
+        <!--        &lt;!&ndash; 生成mapxml对应client，也就是接口dao &ndash;&gt;-->
+        <!--        <javaClientGenerator targetPackage="com.hnss.jsybyth.mapper"-->
+        <!--                             targetProject="./src/main/java" type="XMLMAPPER" >-->
+        <!--            &lt;!&ndash; 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] &ndash;&gt;-->
+        <!--            <property name="enableSubPackages" value="false" />-->
+        <!--        </javaClientGenerator>-->
+
+
+        <!--生成entity类-->
+        <javaModelGenerator targetPackage="com.hnss.jsybyth.entity" targetProject="src/main/java"/>
+        <!--xml映射文件-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <!--mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hnss.jsybyth.mapper" targetProject="src/main/java"/>
+
+        <!-- 配置表信息 -->
+        <table tableName="t_gas_output" domainObjectName="TGasOutput" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+
+    </context>
+</generatorConfiguration>
